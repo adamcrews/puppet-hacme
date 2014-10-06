@@ -20,7 +20,7 @@ class hacme::package (
   }
 
   exec { 'Unzip Hacme':
-    command     => "powershell.exe -Command (new-object -com shell.application).namespace(\'${hacme_base}').CopyHere((new-object -com shell.application).namespace(\'${hacme_base}/${hacme_pkg_zip}\').Items(),16)",
+    command     => "powershell.exe -Command (new-object -com shell.application).namespace(\'${hacme_base}\').CopyHere((new-object -com shell.application).namespace(\'${hacme_base}/${hacme_pkg_zip}\').Items(),16)",
     path        => 'C:\Windows\System32\WindowsPowerShell\v1.0',
     logoutput   => true,
     subscribe   => Exec['Download Hacme'],
