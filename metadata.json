@@ -1,0 +1,16 @@
+{
+  "name": "adamcrews-hacme",
+  "version": "0.1.0",
+  "author": "adamcrews",
+  "summary": "Setup the hacme suite.",
+  "license": "Apache 2.0",
+  "source": "https://github.com/adamcrews/puppet-hacme.git",
+  "project_page": "https://github.com/adamcrews/puppet-hacme",
+  "issues_url": "https://github.com/adamcrews/puppet-hacme/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 1.0.0"
+    }
+  ]
+}
