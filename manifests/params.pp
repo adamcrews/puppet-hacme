@@ -9,8 +9,8 @@ class hacme::params {
       fail("${::operatingsystem} not supported")
   }
 
-  $hacme_src_url  = 'http://b2b-download.mcafee.com/products/tools/foundstone',
-  $hacme_pkg_zip  = 'hacmebooks2_source.zip',
-  $hacme_base     = 'C:/hacme',
+  $hacme_src_url  = 'http://b2b-download.mcafee.com/products/tools/foundstone'
+  $hacme_pkg_zip  = 'hacmebooks2_source.zip'
+  $hacme_base     = 'C:/hacme'
 
 }
