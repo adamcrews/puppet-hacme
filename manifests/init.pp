@@ -12,10 +12,10 @@ class hacme (
 ) inherits hacme::params {
 
   # validate parameters here
+  anchor { 'hacme::begin': } ->
+    class { 'hacme::package': } ->
+    class { 'hacme::java': } ->
 
-  class { 'hacme::package': } ->
-  #class { 'hacme::java': } ->
+  anchor { 'hacme::end': }
 
-  #class { 'hacme::service': } ->
-  Class['hacme']
 }

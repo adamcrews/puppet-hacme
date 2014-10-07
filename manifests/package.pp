@@ -1,10 +1,13 @@
-class hacme::package (
+# == Class hacme::package
+#
+# This class will fetch and uncompress the HacmeBooks package
+#
 
-  $hacme_src_url  = $hacme::params::hacme_src_url,
-  $hacme_pkg_zip  = $hacme::params::hacme_pkg_zip,
-  $hacme_base     = $hacme::params::hacme_base,
-  
-) inherits hacme::params { 
+class hacme::package inherits hacme { 
+
+  if $caller_module_name != $module_name {
+    fail ("Use of private class ${name} by ${caller_module_name}")
+  }
 
   $base_zip = "${hacme_base}/${hacme_pkg_zip}"
   $full_url = "${hacme_src_url}/${hacme_pkg_zip}"
@@ -14,7 +17,6 @@ class hacme::package (
   }
 
   exec { 'Download Hacme':
-    #command   => "powershell.exe -Command (new-object System.Net.WebClient).DownloadFile(\'${hacme_src_url}/${hacme_pkg_zip}\', \'C:\\hacme\\${hacme_pkg_zip}\')",
     command   => "powershell.exe -Command (new-object System.Net.WebClient).DownloadFile(\'${full_url}\', \'${base_zip}\')",
     path      => 'C:\Windows\System32\WindowsPowerShell\v1.0',
     creates   => $base_zip,
@@ -22,7 +24,6 @@ class hacme::package (
   }
 
   exec { 'Unzip Hacme':
-    #    command => "powershell.exe -Command (new-object -com shell.application).namespace(\'${hacme_base}\').CopyHere((new-object -com shell.application).namespace(\'${base_zip}\').Items(),16)",
     command => "powershell.exe -Command (new-object -com shell.application).namespace(\'${hacme_base}\').CopyHere((new-object -com shell.application).namespace(\'${base_zip}\').Items(),16)",
     path        => 'C:\Windows\System32\WindowsPowerShell\v1.0',
     logoutput   => true,
