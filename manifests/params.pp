@@ -24,9 +24,18 @@ class hacme::params {
   # tmp installer files
   $installers = "${programdata}\\installers"
 
-
+  # hacme zip info
   $hacme_src_url  = 'http://b2b-download.mcafee.com/products/tools/foundstone'
   $hacme_pkg_zip  = 'hacmebooks2_source.zip'
   $hacme_base     = 'C:/hacme'
+
+  # Java stuff
+  $java_version = '7'
+  $java_update = '67'
+  $java_build = '01'
+  $java_src_url = 'http://download.oracle.com/otn-pub/java/jdk/'
+  $java_arch = undef
+  $java_referrer = 'http://edelivery.oracle.com'
+
 
 }
