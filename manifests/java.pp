@@ -49,7 +49,6 @@ class hacme::java inherits hacme {
   exec { 'download-java':
     command  => template("${module_name}/download_java.ps1.erb"),
     creates  => $jre_installer,
-    provider => 'powershell',
     require  => File[$installers],
   }
 
