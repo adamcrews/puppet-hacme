@@ -27,8 +27,11 @@ class hacme (
 
 ) inherits hacme::params {
 
-  # validate parameters here
   anchor { 'hacme::begin': } ->
+    file { $installers:
+      ensure => directory,
+    } ->
+
     class { 'hacme::package': } ->
     class { 'hacme::java': } ->
 

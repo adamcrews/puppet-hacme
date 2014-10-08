@@ -47,9 +47,10 @@ class hacme::java inherits hacme {
 
   # Download the JRE using a PowerShell script that sets the license accepted cookie.
   exec { 'download-java':
-    command  => template("${module_name}/download_java.ps1.erb"),
-    creates  => $jre_installer,
-    require  => File[$installers],
+    command => template("${module_name}/download_java.ps1.erb"),
+    path    => 'C:\Windows\System32\WindowsPowerShell\v1.0',
+    creates => $jre_installer,
+    require => File[$installers],
   }
 
   # Determining the Java package name.
